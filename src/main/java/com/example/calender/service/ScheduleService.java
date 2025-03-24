@@ -15,4 +15,10 @@ public interface ScheduleService {
 
     // 일정 단건 조회
     ScheduleResponseDto findScheduleById(Long id);
+
+    // 일정 수정
+    ScheduleResponseDto updateSchedule(Long id, String todo, String name, String password);
+
+    // 일정 삭제
+    void deleteSchedule(Long id);
 }

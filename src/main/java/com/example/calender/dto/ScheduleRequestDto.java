@@ -7,5 +7,5 @@ public class ScheduleRequestDto {
     private String title;
     private String todo;
     private String name;
-    private Long password;
+    private String password;
 }
