@@ -3,6 +3,7 @@ package com.example.calender.controller;
 
 import com.example.calender.dto.ScheduleRequestDto;
 import com.example.calender.dto.ScheduleResponseDto;
+import com.example.calender.entity.Schedule;
 import com.example.calender.service.ScheduleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,8 +47,8 @@ public class ScheduleController {
 
     // 일정 삭제
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteSchedule(@PathVariable Long id) {
-        scheduleService.deleteSchedule(id);
+    public ResponseEntity<Void> deleteSchedule(@PathVariable Long id, @RequestBody ScheduleRequestDto dto) {
+        scheduleService.deleteSchedule(id, dto.getPassword());
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

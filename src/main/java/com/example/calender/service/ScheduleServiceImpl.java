@@ -69,7 +69,10 @@ public class ScheduleServiceImpl implements ScheduleService{
     }
 
     @Override
-    public void deleteSchedule(Long id) {
+    public void deleteSchedule(Long id, String password) {
+        if (!scheduleRepository.findScheduleByIdOrElseThrow(id).getPassword().equals(password)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "올바른 비밀번호를 입력하세요.");
+        }
         int updatedRow = scheduleRepository.deleteSchedule(id);
 
         if (updatedRow == 0) {
