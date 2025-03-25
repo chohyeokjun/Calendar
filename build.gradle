@@ -24,6 +24,8 @@ repositories {
 }
 
 dependencies {
+    // Vaild, Vaildated 어노테이션 사용
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation'
     // MySQL
     implementation 'mysql:mysql-connector-java:8.0.28'
     // JDBC Template

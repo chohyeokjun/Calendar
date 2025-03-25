@@ -45,10 +45,7 @@ public class ScheduleServiceImpl implements ScheduleService{
     @Transactional
     @Override
     public ScheduleResponseDto updateSchedule(Long id, String todo, String name, String password) {
-        // 필수값 검증
-        if (todo == null || name == null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "required values.");
-        }
+
 
         // 비밀 번호 검증
         if (!scheduleRepository.findScheduleByIdOrElseThrow(id).getPassword().equals(password)) {
